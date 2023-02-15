@@ -6,7 +6,7 @@ import SuggestionRow from './SuggestionRow';
 import {Pressable} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
-
+import {API_KEY} from '@env';
 const DestinationSearchScreen = () => {
   const navigation = useNavigation();
   return (
@@ -23,7 +23,7 @@ const DestinationSearchScreen = () => {
         }}
         fetchDetails
         query={{
-          key: '',
+          key: API_KEY,
           language: 'en',
           types: '(cities)',
         }}
