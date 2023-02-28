@@ -1,18 +1,13 @@
 import React from 'react';
-import {View, Text, Image, Pressable} from 'react-native';
+import {View, Text, Image} from 'react-native';
 
 import styles from './styles.js';
-import {useNavigation} from '@react-navigation/native'; //this is ghook
 
-const Post = props => {
+const DetailedPost = props => {
   //   console.log(props);
   const post = props.post;
-  const navigation = useNavigation();
-  const goToPostPage = () => {
-    navigation.navigate('Post', {postid: post.id});
-  };
   return (
-    <Pressable onPress={goToPostPage} style={styles.container}>
+    <View style={styles.container}>
       {/* Images */}
       <Image
         style={styles.image}
@@ -38,8 +33,9 @@ const Post = props => {
       </Text>
       {/* total price  */}
       <Text style={styles.totalPrice}>${post.totalPrice} total</Text>
-    </Pressable>
+      <Text style={styles.longDescription}>{post.description}</Text>
+    </View>
   );
 };
 
-export default Post;
+export default DetailedPost;

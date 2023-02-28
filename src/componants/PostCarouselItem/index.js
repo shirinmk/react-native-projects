@@ -1,7 +1,8 @@
 import React from 'react';
-import {View, Text, Image, useWindowDimensions} from 'react-native';
+import {View, Text, Image, useWindowDimensions, Pressable} from 'react-native';
 
 import styles from './styles.js';
+import {useNavigation} from '@react-navigation/native';
 
 const Post = props => {
   console.log('this is');
@@ -10,8 +11,16 @@ const Post = props => {
 
   // get the size of screen
   const width = useWindowDimensions().width;
+
+  const navigation = useNavigation();
+  const goToPostPage = () => {
+    navigation.navigate('Post', {postid: post.id});
+  };
+
   return (
-    <View style={[styles.container, {width: width - 80}]}>
+    <Pressable
+      onPress={goToPostPage}
+      style={[styles.container, {width: width - 80}]}>
       <View style={styles.innerContainer}>
         {/* Images */}
         <Image
@@ -39,7 +48,7 @@ const Post = props => {
         {/* bed and bedroom */}
       </View>
       {/* // end of innerContainer */}
-    </View>
+    </Pressable>
   );
 };
 

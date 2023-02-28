@@ -23,7 +23,7 @@ const DestinationSearchScreen = () => {
         }}
         fetchDetails
         query={{
-          key: API_KEY,
+          key: ,
           language: 'en',
           types: '(cities)',
         }}
